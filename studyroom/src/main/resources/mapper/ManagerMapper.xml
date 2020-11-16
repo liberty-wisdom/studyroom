@@ -6,4 +6,5 @@
     <select id="findOneManager" resultType="manager">
           select * from user_manage where username =#{username}
     </select>
+
 </mapper>
