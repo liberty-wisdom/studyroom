@@ -8,6 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface ManagerMapper {
-    Manager findOneManager(@Param("username")String username);
+    Manager findOneManager(@Param("username")String username);//使用用户名查询单个用户
     List<Manager> findAll();
 }
