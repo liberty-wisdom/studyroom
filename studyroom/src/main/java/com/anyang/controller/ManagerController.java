@@ -32,6 +32,6 @@ public class ManagerController {
     public String findAll(HttpSession session){
         List<Manager> all = managerMapper.findAll();
         session.setAttribute("all",all);
-        return "show";
+        return "index";
     }
 }
