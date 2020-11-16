@@ -11,7 +11,7 @@
     <title>自习室管理系统</title>
 </head>
 <body>
-    <h3>欢迎您,${name}!</h3>
+    <h3>欢迎您,${all}!</h3>
     <table>
         <tr>
             <td><a href=""><input type="button" value="权限管理"></a></td>

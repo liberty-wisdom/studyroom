@@ -3,6 +3,8 @@ package com.anyang.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class TestController {
     /*
@@ -27,6 +29,6 @@ public class TestController {
     @RequestMapping("toindex")
     public String toindex(){
 
-        return "index";
+        return "show";
     }
 }
