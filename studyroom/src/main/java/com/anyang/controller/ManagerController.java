@@ -18,7 +18,7 @@ public class ManagerController {
     private ManagerMapper managerMapper;
     /*
     * 登录使用
-    * 使用校验username,界面显示name
+    * 使用username、password校验登录,界面显示name
     * */
     @RequestMapping("findOneManager")
     @ResponseBody
@@ -38,6 +38,14 @@ public class ManagerController {
     public String toshow(){
 
         return "index";
+    }
+    /*
+    * 退出登录
+    * */
+    @RequestMapping("droplogin")
+    public String droplogin(HttpSession session){
+        session.invalidate();
+        return "login";
     }
     /*
     * 查询所有用户（不包括权限）

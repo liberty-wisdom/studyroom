@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="../jsp/assets/css/amazeui.css" />
 		<link rel="stylesheet" href="../jsp/assets/css/component.css" />
 		<link rel="stylesheet" href="../jsp/assets/css/page/form.css" />
+		<link rel="bookmark" type="image/x-icon"  href="../jsp/assets/img/1.ico"/>
+		<link rel="shortcut icon" href="../jsp/assets/img/1.ico">
 		<script type="text/javascript" src="../jsp/assets/js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="../jsp/assets/js/jquery.form.js"></script>
 	</head>
@@ -58,9 +60,6 @@
 			</div>
 		</div>
 		<script>
-			$("#msg").click(
-					$("#msg").html("")
-			);
 			var canvas = document.getElementById("canvas");//演员
 			var context = canvas.getContext("2d");//舞台，getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。
 			var button = document.getElementById("bt");//获取按钮
