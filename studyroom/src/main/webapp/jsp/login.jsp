@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="../jsp/assets/css/amazeui.css" />
 		<link rel="stylesheet" href="../jsp/assets/css/component.css" />
 		<link rel="stylesheet" href="../jsp/assets/css/page/form.css" />
+		<script type="text/javascript" src="../jsp/assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../jsp/assets/js/jquery.form.js"></script>
 	</head>
 	<body>
 		<div class="account-pages">
@@ -19,13 +21,13 @@
 	            
 	            <div class="m-t-40 card-box">
 	            	<div class="text-center">
-	                    <h4 class="text-uppercase font-bold m-b-0">登录</h4>
+	                    <h3 class="text-uppercase font-bold m-b-0">登录</h3>
 	                </div>
 	                <div class="panel-body">
 	                	<form class="am-form">
 	                		<div class="am-g">
 	                			<div class="am-form-group">
-							      <input type="text" class="am-radius" id="name"  placeholder="用户名">
+							      <input type="text" class="am-radius" id="username"  placeholder="用户名">
 							    </div>
 							
 							    <div class="am-form-group form-horizontal m-t-20">
@@ -42,9 +44,10 @@
 										</table>
 									</label>
 		                        </div>
-		                        
-		                        <div class="am-form-group ">
-		                        	<button type="button" class="am-btn am-btn-primary am-radius" id="bt" style="width: 100%;height: 100%;">登录</button>
+
+		                        <div class="am-form-group" >
+		                        	<button type="button" class="am-btn am-btn-primary am-radius" id="bt" style="width: 100%;height: 100%;">登录</button><br>
+									<p id="msg" style=" text-align: center;height: 1px"></p>
 		                        </div>
 	                		</div>
 
@@ -55,10 +58,15 @@
 			</div>
 		</div>
 		<script>
+			$("#msg").click(
+					$("#msg").html("")
+			);
 			var canvas = document.getElementById("canvas");//演员
 			var context = canvas.getContext("2d");//舞台，getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。
 			var button = document.getElementById("bt");//获取按钮
 			var input = document.getElementById("text");//获取输入框
+			var name1 = document.getElementById("username");//获取用户名
+			var pwd = document.getElementById("pwd");//获取密码
 			draw();
 			canvas.onclick = function () {
 				context.clearRect(0, 0, 100, 30);//在给定的矩形内清除指定的像素
@@ -106,10 +114,32 @@
 				//点击按钮验证
 				button.onclick = function () {
 					var text = input.value; //获取输入框的值
-					if (text === num) {
-						alert('验证通过');
+					var text1 = name1.value;
+					var text2 = pwd.value;
+					if($.trim(text)==""||$.trim(text1)==""||$.trim(text2)==""){
+						$("#msg").html('用户名、密码、验证码均不能为空').css("color","red");
+					}else if (text === num) {
+						$.ajax({
+							type:"post",
+							url:"../managerController/findOneManager",
+							dataType:"JSON",
+							data:{"username":text1,"password":text2},
+							success:function(data){
+								//根据data判断登录成功还是失败
+								if(data==1){
+									//成功 去主页
+									location.href="../managerController/toshow";
+								}else{
+									//失败 停留在登录页，打印提示信息
+									$("#msg").html("此用户不存在").css("color","red");
+								}
+							},
+							error:function(){
+								alert("警告：系统异常！！！");
+							}
+						});
 					} else {
-						alert('验证失败')
+						$("#msg").html('验证码错误').css("color","red");
 					}
 				}
 

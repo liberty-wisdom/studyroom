@@ -5,6 +5,7 @@ import com.anyang.mapper.ManagerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -20,10 +21,23 @@ public class ManagerController {
     * 使用校验username,界面显示name
     * */
     @RequestMapping("findOneManager")
-    public String findOneManager(String username, HttpSession session){
-        Manager oneManager = managerMapper.findOneManager(username);
-        session.setAttribute("name",oneManager.getName());
-        return "show";
+    @ResponseBody
+    public Object findOneManager(String username,String password,HttpSession session){
+        Manager oneManager = managerMapper.findOneManager(username,password);
+        if(oneManager==null){
+            return 0;
+        }else{
+            session.setAttribute("name",oneManager.getName());
+            return 1;
+        }
+    }
+    /*
+    * 前往主页
+    * */
+    @RequestMapping("toshow")
+    public String toshow(){
+
+        return "index";
     }
     /*
     * 查询所有用户（不包括权限）

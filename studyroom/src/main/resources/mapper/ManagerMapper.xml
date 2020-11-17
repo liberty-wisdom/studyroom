@@ -4,7 +4,7 @@
 
 <mapper namespace="com.anyang.mapper.ManagerMapper">
     <select id="findOneManager" resultType="manager">
-        select * from user_manage where username =#{username}
+        select * from user_manage where username = #{username} and password = #{password}
     </select>
     <select id="findAll" resultType="manager">
         select * from user_manage
