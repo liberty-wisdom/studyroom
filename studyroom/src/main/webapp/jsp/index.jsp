@@ -24,7 +24,7 @@
     <div class="contain">
         <ul class="am-nav am-navbar-nav am-navbar-left">
 
-            <li><h4 class="page-title">基本表格</h4></li>
+            <li><h4 class="page-title">座位状态</h4></li>
         </ul>
 
         <ul class="am-nav am-navbar-nav am-navbar-right">
