@@ -18,7 +18,7 @@
 <!-- Begin page -->
 <header class="am-topbar am-topbar-fixed-top">
     <div class="am-topbar-left am-hide-sm-only">
-        <span class="logo" style="font-size: 30px">自习室管理系统</span><i class="zmdi zmdi-layers"></i>
+        <span class="logo" style="font-size: 30px">图书馆管理系统</span><i class="zmdi zmdi-layers"></i>
     </div>
 
     <div class="contain">
@@ -103,9 +103,9 @@
                         <div>
                             <img src="../jsp/assets/img/avatar-3.jpg" class="img-responsive img-circle" alt="user">
                             <div class="wid-u-info">
-                                <h4 class="m-t-0 m-b-5 font-600">Chadengle</h4>
-                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                                <small class="text-warning"><b>管理员</b></small>
+                                <h4 class="m-t-0 m-b-5 font-600">所有藏书</h4>
+                                <p class="text-muted m-b-5 font-13">数量</p>
+                                <small class="text-warning"><b>${num}</b></small>
                             </div>
                         </div>
                     </div>

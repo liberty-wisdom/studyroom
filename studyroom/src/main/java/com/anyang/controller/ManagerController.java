@@ -1,6 +1,7 @@
 package com.anyang.controller;
 
 import com.anyang.entity.Manager;
+import com.anyang.mapper.BookMapper;
 import com.anyang.mapper.ManagerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,8 @@ public class ManagerController {
 
     @Autowired
     private ManagerMapper managerMapper;
+    @Autowired
+    private BookMapper bookMapper;
     /*
     * 登录使用
     * 使用username、password校验登录,界面显示name
@@ -35,8 +38,9 @@ public class ManagerController {
     * 前往主页
     * */
     @RequestMapping("toshow")
-    public String toshow(){
-
+    public String toshow(HttpSession session){
+        Integer allbooknum = bookMapper.findAllbooknum();
+        session.setAttribute("num",allbooknum);
         return "index";
     }
     /*

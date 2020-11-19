@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>自习室管理系统</title>
+		<title>图书馆管理系统</title>
 		<link rel="stylesheet" href="../jsp/assets/css/core.css" />
 		<link rel="stylesheet" href="../jsp/assets/css/menu.css" />
 		<link rel="stylesheet" href="../jsp/assets/css/amazeui.css" />
@@ -15,10 +15,10 @@
 		<script type="text/javascript" src="../jsp/assets/js/jquery.form.js"></script>
 	</head>
 	<body>
-		<div class="account-pages">
+		<div class="account-pages" >
 			<div class="wrapper-page">
 				<div class="text-center">
-	                <a href="../jsp/login.jsp" class="logo"><span>自习室管理系统</span></a>
+	                <a href="../jsp/login.jsp" class="logo"><span>图书馆管理系统</span></a>
 	            </div>
 	            
 	            <div class="m-t-40 card-box">
