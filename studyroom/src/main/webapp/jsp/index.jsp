@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>自习室管理系统</title>
@@ -24,7 +25,7 @@
     <div class="contain">
         <ul class="am-nav am-navbar-nav am-navbar-left">
 
-            <li><h4 class="page-title">座位状态</h4></li>
+            <li><h4 class="page-title">系统主页</h4></li>
         </ul>
 
         <ul class="am-nav am-navbar-nav am-navbar-right">
@@ -74,14 +75,12 @@
                     <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 权限管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                     <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
                         <li><a href="html/table_basic.html" class="am-cf"> 用户管理</a></li>
-                        <li><a href="html/table_basic.html" class="am-cf"> 权限管理</a></li>
-                        <li><a href="html/table_basic.html" class="am-cf"> 新增用户</a></li>
                     </ul>
                 </li>
                 <li class="admin-parent">
-                    <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 统计图表 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                    <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 书籍管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                     <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-                        <li><a href="html/chart_line.html" class="am-cf"> 折线图</a></li>
+                        <li><a href="/bookController/findAllLists" class="am-cf"> 详细信息</a></li>
                     </ul>
                 </li>
                 <li class="admin-parent">
@@ -101,7 +100,7 @@
                 <div class="am-u-md-3">
                     <div class="card-box widget-user">
                         <div>
-                            <img src="../jsp/assets/img/avatar-3.jpg" class="img-responsive img-circle" alt="user">
+                            <!--<img src="../jsp/assets/img/avatar-3.jpg" class="img-responsive img-circle" alt="user">-->
                             <div class="wid-u-info">
                                 <h4 class="m-t-0 m-b-5 font-600">所有藏书</h4>
                                 <p class="text-muted m-b-5 font-13">数量</p>
@@ -150,137 +149,41 @@
                     </div>
                 </div>
             </div>
-
-
             <!-- Row start -->
             <div class="am-g">
                 <!-- col start -->
-                <div class="am-u-md-4">
-                    <div class="card-box">
-                        <h4 class="header-title m-t-0 m-b-30">收件箱</h4>
-                        <div class="inbox-widget nicescroll" style="height: 315px; overflow: hidden; outline: none;" tabindex="5000">
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="../jsp/assets/img/avatar-1.jpg" class="img-circle" alt=""></div>
-                                    <p class="inbox-item-author">Chadengle</p>
-                                    <p class="inbox-item-text">Hey! there I'm available...</p>
-                                    <p class="inbox-item-date">13:40 PM</p>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="../jsp/../jsp/assets/img/avatar-2.jpg" class="img-circle" alt=""></div>
-                                    <p class="inbox-item-author">Shahedk</p>
-                                    <p class="inbox-item-text">Hey! there I'm available...</p>
-                                    <p class="inbox-item-date">10:15 AM</p>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="../jsp/assets/img/avatar-10.jpg" class="img-circle" alt=""></div>
-                                    <p class="inbox-item-author">Tomaslau</p>
-                                    <p class="inbox-item-text">I've finished it! See you so...</p>
-                                    <p class="inbox-item-date">13:34 PM</p>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="../jsp/assets/img/avatar-4.jpg" class="img-circle" alt=""></div>
-                                    <p class="inbox-item-author">Stillnotdavid</p>
-                                    <p class="inbox-item-text">This theme is awesome!</p>
-                                    <p class="inbox-item-date">13:17 PM</p>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="../jsp/assets/img/avatar-5.jpg" class="img-circle" alt=""></div>
-                                    <p class="inbox-item-author">Kurafire</p>
-                                    <p class="inbox-item-text">Nice to meet you</p>
-                                    <p class="inbox-item-date">12:20 PM</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-
-                <!-- col start -->
                 <div class="am-u-md-8">
                     <div class="card-box">
-                        <h4 class="header-title m-t-0 m-b-30">最新项目</h4>
+                        <h4 class="header-title m-t-0 m-b-30">书籍信息</h4>
                         <div class="am-scrollable-horizontal am-text-ms" style="font-family: '微软雅黑';">
                             <table class="am-table   am-text-nowrap">
                                 <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>项目名称</th>
-                                    <th>开始时间</th>
-                                    <th>结束时间</th>
-                                    <th>状态</th>
-                                    <th>责任人</th>
-                                </tr>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>名称</th>
+                                        <th>作者</th>
+                                        <th>价格</th>
+                                        <th>出版时间</th>
+                                        <th>出版社</th>
+                                        <th>数量</th>
+                                        <th>类型</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Adminto Admin v1</td>
-                                    <td>01/01/2016</td>
-                                    <td>26/04/2016</td>
-                                    <td><span class="label label-danger">已发布</span></td>
-                                    <td>Coderthemes</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Adminto Frontend v1</td>
-                                    <td>01/01/2016</td>
-                                    <td>26/04/2016</td>
-                                    <td><span class="label label-success">已发布</span></td>
-                                    <td>Adminto admin</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Adminto Admin v1.1</td>
-                                    <td>01/05/2016</td>
-                                    <td>10/05/2016</td>
-                                    <td><span class="label label-pink">未开展</span></td>
-                                    <td>Coderthemes</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Adminto Frontend v1.1</td>
-                                    <td>01/01/2016</td>
-                                    <td>31/05/2016</td>
-                                    <td><span class="label label-purple">进行中</span>
-                                    </td>
-                                    <td>Adminto admin</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Adminto Admin v1.3</td>
-                                    <td>01/01/2016</td>
-                                    <td>31/05/2016</td>
-                                    <td><span class="label label-warning">即将开始</span></td>
-                                    <td>Coderthemes</td>
-                                </tr>
-
-                                <tr>
-                                    <td>6</td>
-                                    <td>Adminto Admin v1.3</td>
-                                    <td>01/01/2016</td>
-                                    <td>31/05/2016</td>
-                                    <td><span class="label label-primary">即将开始</span></td>
-                                    <td>Adminto admin</td>
-                                </tr>
-
-                                <tr>
-                                    <td>7</td>
-                                    <td>Adminto Admin v1.3</td>
-                                    <td>01/01/2016</td>
-                                    <td>31/05/2016</td>
-                                    <td><span class="label label-primary">即将开始</span></td>
-                                    <td>Adminto admin</td>
-                                </tr>
-
+                                    <c:forEach items="${all}" var="all">
+                                        <tr>
+                                            <td>${all.id}</td>
+                                            <td>${all.bookname}</td>
+                                            <td>${all.author}</td>
+                                            <td>
+                                                <span class="label label-success">${all.price}</span>
+                                            </td>
+                                            <td>${all.publicationtime}</td>
+                                            <td>${all.publisher}</td>
+                                            <td>${all.booknum}</td>
+                                            <td>${all.type}</td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>

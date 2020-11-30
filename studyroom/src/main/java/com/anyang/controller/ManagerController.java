@@ -1,5 +1,6 @@
 package com.anyang.controller;
 
+import com.anyang.entity.Book;
 import com.anyang.entity.Manager;
 import com.anyang.mapper.BookMapper;
 import com.anyang.mapper.ManagerMapper;
@@ -39,8 +40,12 @@ public class ManagerController {
     * */
     @RequestMapping("toshow")
     public String toshow(HttpSession session){
+        //查询所有图书数量
         Integer allbooknum = bookMapper.findAllbooknum();
         session.setAttribute("num",allbooknum);
+        //查询图说详细信息
+        List<Book> all = bookMapper.findAll();
+        session.setAttribute("all",all);
         return "index";
     }
     /*

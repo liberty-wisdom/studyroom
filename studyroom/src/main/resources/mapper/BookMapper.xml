@@ -6,4 +6,7 @@
     <select id="findAllbooknum" resultType="Integer">
         select sum(booknum) from books
     </select>
+    <select id="findAll" resultType="book">
+        select * from books
+    </select>
 </mapper>
